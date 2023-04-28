@@ -44,6 +44,10 @@ anchor.group.add(Kryg);
 
 await mindarThree.start();
 renderer.setAnimationLoop(() => {
+Cyb.rotation.x += 0.01;
+Kryg.scale.set(1+0.5*Math.cos(Cyb.rotation.x), 1+0.5*Math.sin(Cyb.rotation.x),  1);
+plane.position.y = -0.75+1.5*Math.cos(Cyb.rotation.x);
+
 renderer.render(scene, camera);
 });
 
