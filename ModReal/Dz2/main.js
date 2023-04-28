@@ -8,13 +8,32 @@ container: document.body,
 imageTargetSrc: "../../Foto/Berdia.mind",
 });
 const {renderer, scene, camera} = mindarThree;
-const geometry = new THREE.PlaneGeometry(1, 1);
-const material = new THREE.MeshBasicMaterial({
+
+const geometry1 = new THREE.PlaneGeometry(1, 1);
+const material1 = new THREE.MeshBasicMaterial({
 color: 0x00ffff, transparent: true, opacity: 0.5
 });
-const plane = new THREE.Mesh(geometry, material);
+const plane = new THREE.Mesh(geometry1, material1);
+
+const geometry2 = new THREE.BoxGeometry( 1, 1, 1 );
+const material2 = new THREE.MeshBasicMaterial({
+color: 0x00ff00, transparent: true,  
+});
+const Cyb = new THREE.Mesh(geometry2, material2);
+
+const geometry3 = new THREE.CircleGeometry( 0.5, 32 ); 
+const material3 = new THREE.MeshBasicMaterial({
+color: 0x0000ff, 
+});
+const Kryg = new THREE.Mesh(geometry3, material3);
+
 const anchor = mindarThree.addAnchor(0);
+
+
 anchor.group.add(plane);
+anchor.group.add(Cyb);
+anchor.group.add(Kryg);
+
 await mindarThree.start();
 renderer.setAnimationLoop(() => {
 renderer.render(scene, camera);
